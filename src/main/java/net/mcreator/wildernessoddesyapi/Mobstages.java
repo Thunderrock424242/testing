@@ -29,7 +29,37 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.event.entity.living.MobSpawnEvent.SpawnPlacementCheck;
 import net.minecraftforge.event.TickEvent.LevelTickEvent;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.common.ForgeConfig.Common;
+import net.minecraftforge.common.ForgeConfigSpec;
+import org.apache.commons.lang3.tuple.Pair;
+
+
+
+public class ModConfig {
+    public static final Common COMMON;
+    public static final ForgeConfigSpec COMMON_SPEC;
+
+    static {
+        Pair<Common, ForgeConfigSpec> commonSpecPair = new ForgeConfigSpec.Builder().configure(Common::new);
+        COMMON = commonSpecPair.getLeft();
+        COMMON_SPEC = commonSpecPair.getRight();
+    }
+
+    public static class Common {
+        public final ForgeConfigSpec.IntValue maxMobs;
+
+        public Common(ForgeConfigSpec.Builder builder) {
+            builder.push("general");
+            maxMobs = builder
+                    .comment("Maximum number of mobs that can spawn")
+                    .defineInRange("maxMobs", 100, 1, 1000);
+            builder.pop();
+        }
+    }
+}
+
+
+
+
 
 @Mod.EventBusSubscriber
 public class Mobstages {
