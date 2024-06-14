@@ -34,33 +34,6 @@ import org.apache.commons.lang3.tuple.Pair;
 
 
 
-public class ModConfig {
-    public static final Common COMMON;
-    public static final ForgeConfigSpec COMMON_SPEC;
-
-    static {
-        Pair<Common, ForgeConfigSpec> commonSpecPair = new ForgeConfigSpec.Builder().configure(Common::new);
-        COMMON = commonSpecPair.getLeft();
-        COMMON_SPEC = commonSpecPair.getRight();
-    }
-
-    public static class Common {
-        public final ForgeConfigSpec.IntValue maxMobs;
-
-        public Common(ForgeConfigSpec.Builder builder) {
-            builder.push("general");
-            maxMobs = builder
-                    .comment("Maximum number of mobs that can spawn")
-                    .defineInRange("maxMobs", 100, 1, 1000);
-            builder.pop();
-        }
-    }
-}
-
-
-
-
-
 @Mod.EventBusSubscriber
 public class Mobstages {
     private static int daysElapsed = 0;

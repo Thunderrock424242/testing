@@ -152,7 +152,7 @@
     {
       "name": "Mobstages",
       "type": "code",
-      "compiles": false,
+      "compiles": true,
       "locked_code": true,
       "registry_name": "mobstages",
       "metadata": {
@@ -161,6 +161,18 @@
         ]
       },
       "path": "~/custom code"
+    },
+    {
+      "name": "MobStagesConfig",
+      "type": "code",
+      "compiles": false,
+      "locked_code": true,
+      "registry_name": "mob_stages_config",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/wildernessoddesyapi/MobStagesConfig.java"
+        ]
+      }
     }
   ],
   "variable_elements": [
