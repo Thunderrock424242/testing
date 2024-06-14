@@ -161,18 +161,6 @@
         ]
       },
       "path": "~/custom code"
-    },
-    {
-      "name": "Test",
-      "type": "code",
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "test",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/wildernessoddesyapi/Test.java"
-        ]
-      }
     }
   ],
   "variable_elements": [

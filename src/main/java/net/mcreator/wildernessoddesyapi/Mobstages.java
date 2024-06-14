@@ -26,6 +26,10 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.MobSpawnEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.event.entity.living.MobSpawnEvent.SpawnPlacementCheck;
+import net.minecraftforge.event.TickEvent.LevelTickEvent;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.common.ForgeConfig.Common;
 
 @Mod.EventBusSubscriber
 public class Mobstages {
@@ -33,24 +37,24 @@ public class Mobstages {
     private static final int BASE_MOB_SPAWN_RATE = 5; // Base rate of mob spawning
 
     @SubscribeEvent
-    public static void onWorldTick(TickEvent.WorldTickEvent event) {
-        Level world = event.world;
+    public static void onWorldTick(TickEvent.LevelTickEvent event) {
+        Level world = event.level;
         if (world.dimension() == Level.OVERWORLD && !world.isClientSide) {
-            if (world.getDayTime() % 24000 == 0) { // Check if it's a new day
+            if (world.getDayTime() % 24000 == 0) {
                 daysElapsed++;
             }
         }
     }
 
     @SubscribeEvent
-    public static void onMobSpawn(MobSpawnEvent.CheckSpawn event) {
-        if (event.getEntity().getType().getCategory() == MobCategory.MONSTER) {
-            Level world = (Level) event.getWorld();
+    public static void onMobSpawn(MobSpawnEvent.SpawnPlacementCheck event) {
+        if (event.getEntityType().getCategory() == MobCategory.MONSTER) {
+            Level world = (Level) event.getLevel();
             if (world.dimension() == Level.OVERWORLD) {
                 int additionalMobs = daysElapsed / BASE_MOB_SPAWN_RATE;
                 int maxMobs = ModConfig.COMMON.maxMobs.get();
                 if (world.random.nextInt(100) < additionalMobs && additionalMobs < maxMobs) {
-                    event.setResult(LivingSpawnEvent.Result.ALLOW);
+                    event.setResult(MobSpawnEvent.Result.ALLOW);
                 }
             }
         }
