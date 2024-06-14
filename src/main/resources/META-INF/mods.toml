@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="Academic Free License v3.0"
+
+[[mods]]
+modId="wilderness_oddesy_api"
+version="2.3.0"
+displayName="Wilderness Oddesy API"
+displayURL="https://mcreator.net"
+credits="Created using mod maker MCreator - https://mcreator.net/about"
+authors="rockm, MCreator"
+description="a mod api for my modpack to add things that my moodpack needs this api  also comes with my mods."
+
+# Start of user code block mod configuration
+# End of user code block mod configuration
+
+[[dependencies.wilderness_oddesy_api]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="NONE"
+    side="BOTH"
+
+
+

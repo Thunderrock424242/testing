@@ -1,0 +1,232 @@
+{
+  "mod_elements": [
+    {
+      "name": "GoodMorning",
+      "type": "procedure",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "good_morning",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/wildernessoddesyapi/procedures/GoodMorningProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "LazyDataFixer",
+      "type": "code",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "lazy_data_fixer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/wildernessoddesyapi/LazyDataFixer.java"
+        ]
+      },
+      "path": "~/custom code"
+    },
+    {
+      "name": "MemoryOptimizer",
+      "type": "code",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "memory_optimizer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/wildernessoddesyapi/MemoryOptimizer.java"
+        ]
+      },
+      "path": "~/custom code"
+    },
+    {
+      "name": "MemoryOptimizerServer",
+      "type": "code",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "memory_optimizer_server",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/wildernessoddesyapi/MemoryOptimizerServer.java"
+        ]
+      },
+      "path": "~/custom code"
+    },
+    {
+      "name": "Crawl",
+      "type": "procedure",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crawl",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/wildernessoddesyapi/procedures/CrawlProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CrawlKey",
+      "type": "keybind",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crawl_key",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/wildernessoddesyapi/network/CrawlKeyMessage.java"
+        ]
+      }
+    },
+    {
+      "name": "StopCrawling",
+      "type": "procedure",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stop_crawling",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/wildernessoddesyapi/procedures/StopCrawlingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SettingUpCrawl",
+      "type": "procedure",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "setting_up_crawl",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/wildernessoddesyapi/procedures/SettingUpCrawlProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddonForMemoryOptimizerServer",
+      "type": "code",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "addon_for_memory_optimizer_server",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/wildernessoddesyapi/AddonForMemoryOptimizerServer.java"
+        ]
+      },
+      "path": "~/custom code"
+    },
+    {
+      "name": "Mobstages",
+      "type": "code",
+      "compiles": false,
+      "locked_code": true,
+      "registry_name": "mobstages",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/wildernessoddesyapi/Mobstages.java"
+        ]
+      },
+      "path": "~/custom code"
+    },
+    {
+      "name": "Test",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "test",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/wildernessoddesyapi/Test.java"
+        ]
+      }
+    }
+  ],
+  "variable_elements": [
+    {
+      "name": "is_player_crawling",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "Is_watcher_spawned",
+      "type": "logic",
+      "scope": "world",
+      "value": "false"
+    },
+    {
+      "name": "Is_sttructure_spawned",
+      "type": "logic",
+      "scope": "world",
+      "value": "false"
+    }
+  ],
+  "sound_elements": [],
+  "tag_elements": {},
+  "language_map": {
+    "en_us": {
+      "key.wilderness_oddesy_api.crawl_key": "Crawl Key"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "custom code",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "wilderness_oddesy_api",
+    "modName": "Wilderness Oddesy API",
+    "version": "2.3.0",
+    "description": "a mod api for my modpack to add things that my moodpack needs this api  also comes with my mods.",
+    "author": "rockm, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Academic Free License v3.0",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.20.1",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "net.mcreator.wildernessoddesyapi"
+  },
+  "mcreatorVersion": 202400118518
+}
