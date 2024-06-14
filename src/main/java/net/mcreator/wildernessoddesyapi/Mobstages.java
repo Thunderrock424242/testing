@@ -14,12 +14,11 @@
 */
 package net.mcreator.wildernessoddesyapi;
 
-import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.living.LivingSpawnEvent;
+import net.minecraftforge.event.entity.living.MobSpawnEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -28,15 +27,17 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.Level;
 import org.apache.commons.lang3.tuple.Pair;
 
 @Mod("wilderness_oddesy_api")
-public class NightTimeMobsMod {
+public class Mobstages {
     public static final String MODID = "wilderness_oddesy_api";
     private static int daysElapsed = 0;
     private static final int BASE_MOB_SPAWN_RATE = 5; // Base rate of mob spawning
 
-    public NightTimeMobsMod() {
+    public Mobstages() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::setup);
 
@@ -50,7 +51,7 @@ public class NightTimeMobsMod {
     }
 
     @SubscribeEvent
-    public static void onWorldTick(TickEvent.WorldTickEvent event) {
+    public static void onWorldTick(TickEvent.LevelTickEvent event) {
         Level world = event.world;
         if (world.dimension() == Level.OVERWORLD && !world.isClientSide) {
             if (world.getDayTime() % 24000 == 0) { // Check if it's a new day
@@ -60,7 +61,7 @@ public class NightTimeMobsMod {
     }
 
     @SubscribeEvent
-    public static void onMobSpawn(LivingSpawnEvent.CheckSpawn event) {
+    public static void onMobSpawn(MobSpawnEvent.SpawnPlacementCheck event) {
         if (event.getEntity().getType().getCategory() == MobCategory.MONSTER) {
             Level world = (Level) event.getWorld();
             if (world.dimension() == Level.OVERWORLD) {
